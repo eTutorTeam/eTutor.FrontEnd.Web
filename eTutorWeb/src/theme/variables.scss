@@ -1,0 +1,12 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+
+$primary: #16A9FF;
+$link: $blue;
+$info: #0E5780;
+$success: $green;
+$warning: $yellow;
+$danger: #D24437;
+$dark: $grey-darker;
+$text: $grey-dark;
+
+@import '../../node_modules/bulma/sass/utilities/_all.sass';

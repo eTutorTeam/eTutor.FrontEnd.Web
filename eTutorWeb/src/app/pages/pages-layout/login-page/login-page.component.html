@@ -1,0 +1,44 @@
+<div class="form-container">
+
+  <form [formGroup]="loginForm">
+
+  <div class="field">
+    <label class="label">Corre Electronico</label>
+    <div class="control has-icons-left">
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+      <input type="text" class="input" [ngClass]="{'is-danger': checkIfControlHasErrors(email)}"  formControlName="email">
+      <div class="form-errors" *ngIf="checkIfControlHasErrors(email)">
+        <p class="help is-danger" *ngIf="email.errors['email']">Debe ingresar un correo electrónico válido</p>
+        <p class="help is-danger" *ngIf="email.errors['required']">Este es un campo requerido</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+      <label class="label">Contraseña</label>
+      <div class="control has-icons-left">
+        <span class="icon is-small is-left">
+          <i class="fas fa-key  "></i>
+        </span>
+        <input type="password" class="input" [ngClass]="{'is-danger': checkIfControlHasErrors(password)}" formControlName="password">
+        <div class="form-errors" *ngIf="checkIfControlHasErrors(password)">
+            <p class="help is-danger" >Este es un campo requerido</p>
+          </div>
+      </div>
+  </div>
+  <br>
+  <div>
+    <button class="button is-primary is-medium is-fullwidth" [disabled]="loginForm.invalid">Login &nbsp;
+      <i class="fas fa-sign-in-alt"></i>
+    </button>
+  </div>
+
+  </form>
+  <br>
+  <br>
+  <div style="width: 100%; text-align: center">
+    <a href="#">Olivdaste tu constraseña?</a>
+  </div>
+</div>
