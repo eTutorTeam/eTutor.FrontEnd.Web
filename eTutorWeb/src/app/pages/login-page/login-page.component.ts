@@ -4,6 +4,7 @@ import { AccountService } from 'src/app/services/accounts/account.service';
 import { LoginRequest } from 'src/app/models/login-request';
 import { RoleTypes } from 'src/app/enums/role-types.enum';
 import { Router } from '@angular/router';
+import { ToastNotificationService } from 'src/app/services/toast-notification.service';
 
 @Component({
   templateUrl: './login-page.component.html',
@@ -16,7 +17,8 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private toastNotificationService: ToastNotificationService
   ) { }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class LoginPageComponent implements OnInit {
 
   submitForm() {
     this.performSignIn().catch(err => {
-      //TODO: Show error
+      this.toastNotificationService.showErrorMessage('Error', err);
     });
   }
 
