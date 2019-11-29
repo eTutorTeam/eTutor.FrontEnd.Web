@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  hmr: true
+  hmr: true,
+  apiBaseUrl: 'https://etutorapi.azurewebsites.net'
 }
