@@ -10,13 +10,10 @@ const routes: Routes = [
     component: BackOfficeLayoutComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: BackOfficeDashboardComponent
       }
     ]
-  },
-  {
-    path: '', redirectTo: 'dashboard', pathMatch: 'full'
   }
 ];
 

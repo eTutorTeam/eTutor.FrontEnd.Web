@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   hmr: false,
   //apiBaseUrl: 'https://etutorapi.azurewebsites.net'
-  apiBaseUrl: 'http://localhost:5034'
+  apiBaseUrl: 'https://localhost:5033'
 };
 
 /*

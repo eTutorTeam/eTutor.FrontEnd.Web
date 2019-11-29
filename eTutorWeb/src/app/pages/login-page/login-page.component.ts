@@ -13,6 +13,7 @@ import { ToastNotificationService } from 'src/app/services/toast-notification.se
 export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
+  isLoading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,17 +27,22 @@ export class LoginPageComponent implements OnInit {
   }
 
   submitForm() {
+    this.isLoading = true;
     this.performSignIn().catch(err => {
-      this.toastNotificationService.showErrorMessage('Error', err);
+      console.log(err);
+      this.toastNotificationService.showError('Error', err);
+      this.isLoading = false;
     });
   }
 
   private async performSignIn() {
-    if (this.loginForm.invalid) return;
+    if (this.loginForm.invalid) { return; }
     const model: LoginRequest = this.loginForm.value;
     const user = await this.accountService.loginUser(model);
-    const navigationResult = await this.router.navigate(['admin'])
-    if (!navigationResult) throw new Error("El usuario no tiene permisos para ingresar en este portal");
+    const navigationResult = await this.router.navigate(['admin']);
+    if (!navigationResult) { throw new Error('El usuario no tiene permisos para ingresar en este portal'); }
+
+    this.isLoading = false;
   }
 
   private buildForm() {

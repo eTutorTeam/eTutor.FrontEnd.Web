@@ -21,7 +21,7 @@ export class ToastNotificationService {
       const message = error.message !== undefined ? error.message : error;
       this.toastService.error(message, title);
     } else {
-      const message = error.error.Message !== undefined ? error.error.Message : error.error;
+      const message = error.error.message !== undefined ? error.error.message : error.error;
       this.toastService.error(message, title);
     }
 

@@ -1,5 +1,5 @@
 <div class="form-container">
-    
+
   <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
   <div class="field">
@@ -42,3 +42,4 @@
     <a href="#">Olivdaste tu constraseña?</a>
   </div>
 </div>
+<ngx-loading [show]="isLoading"></ngx-loading>
