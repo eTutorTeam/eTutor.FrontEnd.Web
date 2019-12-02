@@ -15,7 +15,6 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./back-office/back-office.module').then(m => m.BackOfficeModule),
     data: {
-      animation: ['fader'],
       roles: [RoleTypes.Admin]
     },
     canActivate: [RoleAuthGuard]

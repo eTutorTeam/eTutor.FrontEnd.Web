@@ -1,4 +1,7 @@
-$side-bar-width: 250px;
+@import '../../../../node_modules/bulma/sass/utilities/initial-variables';
+
+$side-bar-width: 270px;
+$wrapped-width: 80px;
 
 .content {
   display: flex;
@@ -9,9 +12,24 @@ $side-bar-width: 250px;
     overflow-y: auto;
     background: green;
     width: $side-bar-width;
+    transition: all 0.3s ease;
   }
 
   .wrapper {
+    width: 100%;
+  }
 
+  &.wrapped {
+    .sidebar {
+      width: $wrapped-width;
+      transition: all 0.3s ease;
+    }
+  }
+
+  @media only screen and (max-width: $desktop){
+    .sidebar {
+      width: $wrapped-width;
+      transition: all 0.3s ease;
+    }
   }
 }

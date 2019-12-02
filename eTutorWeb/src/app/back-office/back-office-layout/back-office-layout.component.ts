@@ -6,9 +6,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackOfficeLayoutComponent implements OnInit {
 
+  isWrapped = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openCloseMenu() {
+    this.isWrapped = !this.isWrapped;
   }
 
 }

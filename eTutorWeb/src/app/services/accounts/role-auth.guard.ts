@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { Observable } from 'rxjs';
 import { AccountService } from './account.service';
 import { RoleTypes } from 'src/app/enums/role-types.enum';
+import { ToastNotificationService } from '../toast-notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class RoleAuthGuard implements CanActivate {
 
   constructor(
     private router: Router,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private notificationService: ToastNotificationService
   ) {
 
   }
@@ -19,24 +21,25 @@ export class RoleAuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const roles: RoleTypes[] = next.data['roles']
-    return this.loggedUserHasRoles(roles);
+    const roles: RoleTypes[] = next.data.roles;
+    return this.loggedUserHasRoles(roles, state);
   }
 
-  private async loggedUserHasRoles(roles: RoleTypes[]): Promise<boolean> {
+  private async loggedUserHasRoles(roles: RoleTypes[], state: RouterStateSnapshot): Promise<boolean> {
     const loggedIn = await this.isUserLoggedIn();
     const user = await this.accountService.getLoggedUser();
     if (loggedIn && user.roles.some(r => roles.includes(r))) {
       return true;
     }
 
-    //TODO: Show unathorized page
-    this.router.navigate(['login-tutor'])
+    this.router.navigate(['']);
+    this.notificationService.showWarningMessage('Sin autorizacion',
+        `Usted no tiene los permisos para acceder a esta pantalla: ${state.url}`);
     return false;
   }
 
   private async isUserLoggedIn(): Promise<boolean> {
-    let isUserLoggedIn = this.accountService.isUserLoggedIn();
+    const isUserLoggedIn = this.accountService.isUserLoggedIn();
     if (isUserLoggedIn) {
       if (await this.accountService.isTokenExpired()) {
         await this.accountService.logoutUser();
