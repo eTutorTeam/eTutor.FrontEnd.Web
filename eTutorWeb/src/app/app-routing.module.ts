@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesLayoutComponent } from './pages/pages-layout/pages-layout.component';
 import { RoleTypes } from './enums/role-types.enum';
 import { RoleAuthGuard } from './services/accounts/role-auth.guard';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,13 @@ const routes: Routes = [
       roles: [RoleTypes.Admin]
     },
     canActivate: [RoleAuthGuard]
+  },
+  {
+    path: 'emails',
+    loadChildren: () => import('./email-pages/email-pages.module').then(m => m.EmailPagesModule)
+  },
+  {
+    path: '**', component: NotFoundComponent
   }
 ];
 
