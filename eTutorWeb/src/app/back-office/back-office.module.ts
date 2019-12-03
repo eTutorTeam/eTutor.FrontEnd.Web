@@ -5,13 +5,15 @@ import { BackOfficeRoutingModule } from './back-office-routing.module';
 import { BackOfficeLayoutComponent } from './back-office-layout/back-office-layout.component';
 import { BackOfficeDashboardComponent } from './back-office-dashboard/back-office-dashboard.component';
 import { BackOfficeNavbarComponent } from './back-office-navbar/back-office-navbar.component';
+import { BackOfficeSidebarComponent } from './back-office-sidebar/back-office-sidebar.component';
 
 
 @NgModule({
   declarations: [
     BackOfficeLayoutComponent,
     BackOfficeDashboardComponent,
-    BackOfficeNavbarComponent
+    BackOfficeNavbarComponent,
+    BackOfficeSidebarComponent
   ],
   imports: [
     CommonModule,

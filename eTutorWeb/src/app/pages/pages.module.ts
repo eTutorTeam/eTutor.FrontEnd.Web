@@ -16,6 +16,6 @@ import { NgxLoadingModule } from 'ngx-loading';
     FormsModule,
     ReactiveFormsModule,
     NgxLoadingModule
-  ]
+  ],
 })
 export class PagesModule { }

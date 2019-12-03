@@ -9,9 +9,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './services/accounts/auth-interceptor.service';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
