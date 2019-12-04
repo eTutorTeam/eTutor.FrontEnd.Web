@@ -7,6 +7,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
+import {NgxLoadingModule} from 'ngx-loading';
+import { ParentRegistrationSuccessfulComponent } from './parent-registration-successful/parent-registration-successful.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,10 @@ const routes: Routes = [
       {
         path: 'parent-registration',
         component: ParentRegistrationFormComponent
+      },
+      {
+        path: 'parent-registration-successful',
+        component: ParentRegistrationSuccessfulComponent
       }
     ]
   }
@@ -25,7 +31,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ParentRegistrationFormComponent,
-    EmailPagesLayoutComponent
+    EmailPagesLayoutComponent,
+    ParentRegistrationSuccessfulComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +40,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    NgxMaskModule.forChild()
+    NgxMaskModule.forChild(),
+    NgxLoadingModule
   ]
 })
 export class EmailPagesModule { }

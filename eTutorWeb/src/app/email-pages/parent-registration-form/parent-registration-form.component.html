@@ -1,12 +1,12 @@
 <div class="form-container">
   <div class="columns">
-    <div class="column has-text-centered">
+    <div class="column has-text-centered title-section">
       <h1>Formulario de Registro para Padre</h1>
-      <h2>Estudiante: [Aqui va el nombre del estudiante]</h2>
+      <h2>Estudiante: {{student.name}} {{student.lastName}}</h2>
     </div>
   </div>
 
-  <form [formGroup]="registrationForm">
+  <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
     <div class="columns">
       <div class="column">
         <app-text-input-form-control
@@ -24,7 +24,22 @@
     </div>
     <div class="columns">
       <div class="column">
-        //TODO: Gender
+        <div class="field">
+          <label class="label">Sexo</label>
+          <div class="select" style="width: 100%">
+            <select formControlName="gender" style="width: inherit;">
+              <option value="1">Masculino</option>
+              <option value="2">Femenino</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <app-text-input-form-control
+          label="Correo Electronico" placeholder="Ingrese su correo electronico"
+          formControlName="email"
+          type="email" [control]="email" icon="fas fa-envelope"
+        ></app-text-input-form-control>
       </div>
     </div>
     <div class="columns">
@@ -41,6 +56,7 @@
           [control]="confirmPassword"
           placeholder="Confirme su contraseña"
         ></app-text-input-form-control>
+        <p class="help is-danger" *ngIf="!passwordsMatch">Las contraseñas no coinciden</p>
       </div>
     </div>
     <div class="columns">
@@ -67,10 +83,18 @@
             <div class="form-errors" *ngIf="checkIfControlHasErrors(personalId)">
               <p class="help is-danger" *ngIf="personalId.errors['required']">Este es un campo requerido</p>
               <p class="help is-danger" *ngIf="personalId.errors['InvalidId']">Debe de ingresar una cedula valida</p>
+              <p class="help is-danger" *ngIf="personalId.errors['Mask error']">Debe de ingresar una cedula valida</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="columns">
+      <div class="column">
+        <button class="button is-info is-fullwidth"  [disabled]="registrationForm.invalid">Registrarse</button>
+      </div>
+    </div>
   </form>
 </div>
+
+<ngx-loading [show]="isLoading"></ngx-loading>
