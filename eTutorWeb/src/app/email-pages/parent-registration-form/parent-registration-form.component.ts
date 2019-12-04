@@ -63,10 +63,12 @@ export class ParentRegistrationFormComponent implements OnInit, OnDestroy {
       return;
     }
     const value: ParentUserRegistrationRequest = this.registrationForm.value;
+    value.email = this.parentEmail;
     value.userName = value.email;
     value.studentId = this.studentId;
     await this.registrationService.RegisterParentUser(value);
     this.isLoading = false;
+    await this.router.navigate(['emails/parent-registration-successful']);
   }
 
   private async preLoadData() {
