@@ -6,6 +6,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { UnregisteredTutorsComponent } from './unregistered-tutors/unregistered-tutors.component';
 import { TutorsValidationComponent } from './tutors-validation/tutors-validation.component';
 import {NgxLoadingModule} from 'ngx-loading';
+import {NgxMaskModule} from 'ngx-mask';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule,
     RouterModule.forChild(routes),
-    NgxLoadingModule
+    NgxLoadingModule,
+    NgxMaskModule.forChild()
   ]
 })
 export class TutorsManagmentModule { }

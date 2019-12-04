@@ -2,7 +2,7 @@
   <h1>Gestion de Tutores</h1>
 </div>
 
-<div class="columns">
+<div class="columns" *ngIf="inactiveTutors.length > 0">
   <div class="column">
     <h3>Tutores Inactivos</h3>
     <table  class="table">
@@ -15,10 +15,10 @@
         <tr *ngFor="let tutor of inactiveTutors">
           <td>{{tutor.id}}</td>
           <td>{{tutor.fullName}}</td>
-          <td>{{tutor.personalId}}</td>
+          <td>{{tutor.personalId  | mask: '000-0000000-0'}}</td>
           <td>{{tutor.email}}</td>
           <td>
-            <button class="button is-primary" disabled>Activar</button>
+            <button class="button is-primary" (click)="activateTutor(tutor.id)">Activar</button>
           </td>
         </tr>
       </tbody>
@@ -26,7 +26,7 @@
   </div>
 </div>
 <br><br>
-<div class="columns">
+<div class="columns" *ngIf="activeTutors.length > 0">
   <div class="column">
     <h3>Tutores Activos</h3>
     <table  class="table">
@@ -39,7 +39,7 @@
       <tr *ngFor="let tutor of activeTutors">
         <td>{{tutor.id}}</td>
         <td>{{tutor.fullName}}</td>
-        <td>{{tutor.personalId}}</td>
+        <td>{{tutor.personalId | mask: '000-0000000-0'}}</td>
         <td>{{tutor.email}}</td>
         <td>
           <button class="button is-primary" disabled>NOT IMPLEMENTED</button>

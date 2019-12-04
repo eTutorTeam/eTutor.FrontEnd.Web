@@ -21,24 +21,27 @@ export class TutorsValidationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadData().catch(err => {
-      this.isLoading = false;
-      this.toastNotificationService.showError('Error', err);
-    });
+    this.loadData();
   }
 
   activateTutor(id: number) {
     this.isLoading = true;
     this.tutorsService.activateTutor(id).then(res => {
-      console.log(res);
-      this.isLoading = false;
+      this.loadData();
     }).catch( err => {
       this.isLoading = false;
       this.toastNotificationService.showError('Error', err);
     });
   }
 
-  private async loadData() {
+  private loadData() {
+    this.loadDataAsync().catch(err => {
+      this.isLoading = false;
+      this.toastNotificationService.showError('Error', err);
+    });
+  }
+
+  private async loadDataAsync() {
     this.isLoading = true;
     this.inactiveTutors = await this.tutorsService.getInactiveTutors();
     this.activeTutors = await this.tutorsService.getActiveTutors();

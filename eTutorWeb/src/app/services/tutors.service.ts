@@ -21,6 +21,6 @@ export class TutorsService {
   }
 
   async activateTutor(tutorId: number): Promise<UserAdminResponseModel> {
-    return this.http.post<UserAdminResponseModel>(`${environment}/api/tutors/activate/${tutorId}`, {}).toPromise();
+    return this.http.post<UserAdminResponseModel>(`${environment.apiBaseUrl}/api/tutors/activate/${tutorId}`, {}).toPromise();
   }
 }
