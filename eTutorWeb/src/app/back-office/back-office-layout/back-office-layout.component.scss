@@ -17,6 +17,9 @@ $wrapped-width: 80px;
 
   .wrapper {
     width: 100%;
+    .body-content {
+      padding: 20px;
+    }
   }
 
   &.wrapped {

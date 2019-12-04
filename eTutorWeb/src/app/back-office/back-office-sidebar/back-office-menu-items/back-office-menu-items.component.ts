@@ -10,7 +10,7 @@ export class BackOfficeMenuItemsComponent implements OnInit {
 
   items: BackOfficeMenuItem[] = [
     {
-      route: '#',
+      route: '/admin/tutors',
       icon: 'fas fa-chalkboard-teacher',
       label: 'Gestion Tutores'
     },

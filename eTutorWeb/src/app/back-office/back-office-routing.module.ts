@@ -12,6 +12,10 @@ const routes: Routes = [
       {
         path: '',
         component: BackOfficeDashboardComponent
+      },
+      {
+        path: 'tutors',
+        loadChildren: () => import('./tutors-managment/tutors-managment.module').then(m => m.TutorsManagmentModule)
       }
     ]
   }
