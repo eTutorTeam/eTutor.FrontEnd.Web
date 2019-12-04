@@ -6,6 +6,7 @@ import { BackOfficeLayoutComponent } from './back-office-layout/back-office-layo
 import { BackOfficeDashboardComponent } from './back-office-dashboard/back-office-dashboard.component';
 import { BackOfficeNavbarComponent } from './back-office-navbar/back-office-navbar.component';
 import { BackOfficeSidebarComponent } from './back-office-sidebar/back-office-sidebar.component';
+import { BackOfficeMenuItemsComponent } from './back-office-sidebar/back-office-menu-items/back-office-menu-items.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { BackOfficeSidebarComponent } from './back-office-sidebar/back-office-si
     BackOfficeLayoutComponent,
     BackOfficeDashboardComponent,
     BackOfficeNavbarComponent,
-    BackOfficeSidebarComponent
+    BackOfficeSidebarComponent,
+    BackOfficeMenuItemsComponent
   ],
   imports: [
     CommonModule,

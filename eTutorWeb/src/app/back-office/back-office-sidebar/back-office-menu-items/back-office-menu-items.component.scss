@@ -1,0 +1,46 @@
+$bg-color: #3f7fd1;
+$bg-color-accent: #4a7fb2;
+$bg-hover-color: #1d2b8b;
+
+ul.menu-items-list {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  a {
+    width: 100%;
+    background: $bg-color;
+    transition: all 0.3s ease;
+    color: white;
+    li {
+      width: 100%;
+      list-style-type: none;
+      display: flex;
+      .icon {
+        width: 76px;
+        padding: 20px;
+        display: flex;
+        align-self: center;
+        i {
+          align-self: center;
+          justify-content: center;
+        }
+      }
+      span {
+        width: 100%;
+        transition: all 0.3s ease;
+        background: $bg-color-accent;
+        padding: 20px;
+        border-left: solid thin white;
+        &:hover {
+          background: $bg-hover-color;
+        }
+      }
+    }
+    &:hover {
+      background: $bg-hover-color;
+      color: white;
+    }
+  }
+}
