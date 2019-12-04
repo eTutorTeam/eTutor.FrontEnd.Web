@@ -29,7 +29,6 @@ export class LoginPageComponent implements OnInit {
   submitForm() {
     this.isLoading = true;
     this.performSignIn().catch(err => {
-      console.log(err);
       this.toastNotificationService.showError('Error', err);
       this.isLoading = false;
     });
@@ -41,7 +40,6 @@ export class LoginPageComponent implements OnInit {
     const user = await this.accountService.loginUser(model);
     const navigationResult = await this.router.navigate(['admin']);
     if (!navigationResult) { throw new Error('El usuario no tiene permisos para ingresar en este portal'); }
-
     this.isLoading = false;
   }
 

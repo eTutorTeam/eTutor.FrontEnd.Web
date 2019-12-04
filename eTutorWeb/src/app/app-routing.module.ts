@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PagesLayoutComponent } from './pages/pages-layout/pages-layout.component';
 import { RoleTypes } from './enums/role-types.enum';
 import { RoleAuthGuard } from './services/accounts/role-auth.guard';
 import {NotFoundComponent} from './not-found/not-found.component';

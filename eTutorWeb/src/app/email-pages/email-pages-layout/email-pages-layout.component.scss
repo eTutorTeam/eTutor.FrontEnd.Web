@@ -1,0 +1,19 @@
+.bg {
+  height: 150vh;
+  position: fixed;
+  width: 110%;
+  z-index: -1;
+}
+
+.page-container {
+  margin-top: 10px;
+  border-radius: 5px;
+
+  .card {
+    border-radius: 5px;
+  }
+}
+
+.logo-container {
+  text-align: center;
+}
