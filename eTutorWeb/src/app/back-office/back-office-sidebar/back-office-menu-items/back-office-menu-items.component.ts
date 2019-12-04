@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BackOfficeMenuItem} from '../../../models/back-office-menu-item';
 
 @Component({
   selector: 'app-back-office-menu-items',
@@ -7,6 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackOfficeMenuItemsComponent implements OnInit {
 
+  items: BackOfficeMenuItem[] = [
+    {
+      route: '#',
+      icon: 'fas fa-chalkboard-teacher',
+      label: 'Gestion Tutores'
+    },
+    {
+      route: '#',
+      icon: 'fas fa-school',
+      label: 'DEMO BUTTON'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {

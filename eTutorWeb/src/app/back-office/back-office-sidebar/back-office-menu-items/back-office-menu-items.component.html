@@ -1,10 +1,10 @@
 <ul class="menu-items-list">
-  <a>
-    <li>
-      <div class="icon">
-        <i class="fas fa-chalkboard-teacher"></i>
-      </div>
-      <span>Tutor</span>
-    </li>
-  </a>
+  <a *ngFor="let item of items" [routerLink]="item.route">
+  <li>
+    <div class="icon">
+      <i [class]="item.icon"></i>
+    </div>
+    <span>{{item.label}}</span>
+  </li>
+</a>
 </ul>
