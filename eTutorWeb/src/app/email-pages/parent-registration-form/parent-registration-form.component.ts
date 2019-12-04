@@ -22,6 +22,7 @@ export class ParentRegistrationFormComponent implements OnInit, OnDestroy {
   registrationForm: FormGroup;
   passwordsMatch = true;
   isLoading = false;
+  parentEmail = '';
   subscriptions: Subscription[] = [];
 
   constructor(
@@ -75,6 +76,8 @@ export class ParentRegistrationFormComponent implements OnInit, OnDestroy {
   private getRouteParams() {
     this.route.queryParams.subscribe(params => {
       this.studentId = params.student;
+      this.parentEmail = params.email;
+      this.email.patchValue(this.parentEmail);
       this.getUserInformation().catch(err => {
         console.log(err);
         this.toastNotificationService.showError('Error', err);
@@ -104,7 +107,7 @@ export class ParentRegistrationFormComponent implements OnInit, OnDestroy {
       userName: [''],
       studentId: ['0']
     });
-
+    this.email.disable();
     this.onValueChanges();
   }
 
