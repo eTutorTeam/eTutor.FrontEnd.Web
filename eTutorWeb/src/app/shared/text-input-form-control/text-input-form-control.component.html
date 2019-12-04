@@ -1,0 +1,25 @@
+<div class="field">
+  <label class="label">{{label}}</label>
+  <div class="control" [ngClass]="{'has-icons-left': hasIcon, 'has-icons-right': hasIconRight}">
+    <input class="input" [value]="value"
+           (blur)="onTouched()"
+           (input)="onChange($event.target.value)"
+           [disabled]="disabled"
+           [ngClass]="{'is-danger': checkIfControlHasErrors()}"
+           [type]="type" [placeholder]="placeholder"/>
+    <span class="icon is-small is-left" *ngIf="hasIcon">
+      <i [class]="icon"></i>
+    </span>
+    <span class="icon is-small is-right" *ngIf="hasIconRight">
+      <i [class]="iconRight"></i>
+    </span>
+    <div class="form-errors" *ngIf="checkIfControlHasErrors()">
+      <p class="help is-danger" *ngIf="control.errors['required']">Este es un campo requerido</p>
+      <p class="help is-danger" *ngIf="control.errors['email']">Debe de ingresar un correo electronico valido</p>
+      <p class="help is-danger" *ngIf="control.errors['NotEqual']">Las contraseñas no coinciden</p>
+      <p class="help is-danger" *ngIf="control.errors['InvalidId']">Debe de ingresar una cedula valida</p>
+      <p class="help is-danger" *ngIf="control.errors['maxLength']">Ingreso {{control.errors['maxLength'].actualLength}} y el maximo es de {{control.errors['maxLength'].requiredLength}}</p>
+      <p class="help is-danger" *ngIf="control.errors['minLength']">Ingreso {{control.errors['minLength'].actualLength}} y el minimo es de {{control.errors['minLength'].requiredLength}}</p>
+    </div>
+  </div>
+</div>

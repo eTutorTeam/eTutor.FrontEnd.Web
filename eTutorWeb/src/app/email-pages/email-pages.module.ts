@@ -4,6 +4,9 @@ import {PagesLayoutComponent} from '../pages/pages-layout/pages-layout.component
 import { ParentRegistrationFormComponent } from './parent-registration-form/parent-registration-form.component';
 import { EmailPagesLayoutComponent } from './email-pages-layout/email-pages-layout.component';
 import {RouterModule, Routes} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 const routes: Routes = [
   {
@@ -16,7 +19,7 @@ const routes: Routes = [
       }
     ]
   }
-]
+];
 
 
 @NgModule({
@@ -26,7 +29,11 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    NgxMaskModule.forChild()
   ]
 })
 export class EmailPagesModule { }

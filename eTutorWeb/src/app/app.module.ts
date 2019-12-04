@@ -10,6 +10,9 @@ import { AuthInterceptorService } from './services/accounts/auth-interceptor.ser
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {NgxMaskModule, IConfig} from 'ngx-mask';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +25,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxMaskModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
