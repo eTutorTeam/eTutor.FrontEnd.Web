@@ -9,3 +9,12 @@
   left: 0;
   top: 0;
 }
+
+
+.screen {
+  display: flex;
+  justify-content: center;
+  .screen-content {
+    width: 900px;
+  }
+}
