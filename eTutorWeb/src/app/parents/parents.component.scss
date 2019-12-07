@@ -1,0 +1,11 @@
+@import '../../theme/variables';
+
+.parent-background {
+  background: $primary;
+  z-index: -10;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
