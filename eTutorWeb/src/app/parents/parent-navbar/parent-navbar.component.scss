@@ -53,6 +53,22 @@
       display: inline-flex;
       flex-direction: row-reverse;
       align-items: center;
+      .options-btn {
+        background: transparent;
+        border: none;
+        font-size: 2em;
+        height: 60px;
+        width: 65px;
+        color: $dark;
+        opacity: 0.5;
+        &:hover {
+          opacity: 1;
+        }
+        &:focus {
+          outline: none;
+          opacity: 0.8;
+        }
+      }
     }
   }
 }

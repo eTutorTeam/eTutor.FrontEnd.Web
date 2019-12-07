@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-parent-navbar',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentNavbarComponent implements OnInit {
 
+  isMenuActive = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  @HostListener('document:click', ['$event'])
+  public listenMouseClicks() {
+    //this.isMenuActive = false;
+  }
+
+  openDropDown() {
+    this.isMenuActive = true;
+  }
+
+  closeDropDown() {
+    this.isMenuActive = false;
   }
 
 }
