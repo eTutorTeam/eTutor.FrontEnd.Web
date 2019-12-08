@@ -25,11 +25,11 @@ const routes: Routes = [
   },
   {
     path: 'parent',
-    loadChildren: () => import('./parents/parents.module').then(m => m.ParentsModule)
-    // data: {
-    //   roles: [RoleTypes.Parent]
-    // },
-    // canActivate: [RoleAuthGuard]
+    loadChildren: () => import('./parents/parents.module').then(m => m.ParentsModule),
+    data: {
+      roles: [RoleTypes.Parent]
+    },
+    canActivate: [RoleAuthGuard]
   },
   {
     path: '**', component: NotFoundComponent

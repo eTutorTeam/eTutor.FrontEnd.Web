@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { AccountService } from 'src/app/services/accounts/account.service';
-import { LoginRequest } from 'src/app/models/login-request';
-import { RoleTypes } from 'src/app/enums/role-types.enum';
-import { Router } from '@angular/router';
-import { ToastNotificationService } from 'src/app/services/toast-notification.service';
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AccountService} from 'src/app/services/accounts/account.service';
+import {LoginRequest} from 'src/app/models/login-request';
+import {RoleTypes} from 'src/app/enums/role-types.enum';
+import {Router} from '@angular/router';
+import {ToastNotificationService} from 'src/app/services/toast-notification.service';
+import {UserTokenResponse} from '../../models/user-token-response';
 
 @Component({
   templateUrl: './login-page.component.html',
@@ -37,10 +38,21 @@ export class LoginPageComponent implements OnInit {
   private async performSignIn() {
     if (this.loginForm.invalid) { return; }
     const model: LoginRequest = this.loginForm.value;
-    const user = await this.accountService.loginUser(model);
-    const navigationResult = await this.router.navigate(['admin']);
+    const user: UserTokenResponse = await this.accountService.loginUser(model);
+    const navigationResult = await this.performUserNavigation(user);
     if (!navigationResult) { throw new Error('El usuario no tiene permisos para ingresar en este portal'); }
     this.isLoading = false;
+  }
+
+  private async performUserNavigation(user: UserTokenResponse) {
+    const roles = user.roles;
+    if (roles.some(r => r === RoleTypes.Admin)) {
+      return await this.router.navigate(['admin']);
+    } else if (roles.some(r => r === RoleTypes.Parent)) {
+      return await this.router.navigate(['parent']);
+    } else {
+      return false;
+    }
   }
 
   private buildForm() {
