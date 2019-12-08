@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="right">
-      <div class="dropdown"  [ngClass]="{'is-active': isMenuActive}">
+      <div class="dropdown"  (clickOutside)="closeDropDown()"  [ngClass]="{'is-active': isMenuActive}">
         <div class="dropdown-trigger">
           <button class="options-btn" aria-haspopup="true" aria-controls="dropdown-menu" (click)="openDropDown()">
               <i class="fas fa-cog"></i>
@@ -23,11 +23,11 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu" role="menu">
           <div class="dropdown-content">
-            <a href="#" class="dropdown-item">
-              Dropdown item
-            </a>
             <a class="dropdown-item">
-              Other dropdown item
+             Cambiar Contraseña
+            </a>
+            <a class="dropdown-item" (click)="logoutUser()">
+              Cerrar Sesión
             </a>
           </div>
         </div>

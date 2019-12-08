@@ -1,4 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {AccountService} from '../../services/accounts/account.service';
+import {ToastNotificationService} from '../../services/toast-notification.service';
 
 @Component({
   selector: 'app-parent-navbar',
@@ -8,14 +10,12 @@ import {Component, HostListener, OnInit} from '@angular/core';
 export class ParentNavbarComponent implements OnInit {
 
   isMenuActive = false;
-  constructor() { }
+  constructor(
+      private accountService: AccountService,
+      private notificationService: ToastNotificationService
+  ) { }
 
   ngOnInit() {
-  }
-
-  @HostListener('document:click', ['$event'])
-  public listenMouseClicks() {
-    //this.isMenuActive = false;
   }
 
   openDropDown() {
@@ -25,5 +25,12 @@ export class ParentNavbarComponent implements OnInit {
   closeDropDown() {
     this.isMenuActive = false;
   }
+
+  logoutUser() {
+    this.accountService.logoutUser().catch(err => {
+      this.notificationService.showError('Error', err);
+    });
+  }
+
 
 }

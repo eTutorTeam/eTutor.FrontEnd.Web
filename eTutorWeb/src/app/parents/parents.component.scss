@@ -1,5 +1,6 @@
 @import '../../theme/variables';
 
+
 .parent-background {
   background: $info;
   z-index: -10;
@@ -15,6 +16,6 @@
   display: flex;
   justify-content: center;
   .screen-content {
-    width: 900px;
+    width: 700px;
   }
 }
