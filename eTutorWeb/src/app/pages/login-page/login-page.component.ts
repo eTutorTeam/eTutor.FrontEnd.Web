@@ -25,6 +25,9 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
+    this.checkIfUserAlreadyLogged().catch(err => {
+      this.toastNotificationService.showError('Error', err);
+    });
   }
 
   submitForm() {
@@ -42,6 +45,14 @@ export class LoginPageComponent implements OnInit {
     const navigationResult = await this.performUserNavigation(user);
     if (!navigationResult) { throw new Error('El usuario no tiene permisos para ingresar en este portal'); }
     this.isLoading = false;
+  }
+
+  private async checkIfUserAlreadyLogged() {
+    const logged = await this.accountService.isUserLoggedIn();
+    if (logged) {
+      const user = await this.accountService.getLoggedUser();
+      await this.performUserNavigation(user);
+    }
   }
 
   private async performUserNavigation(user: UserTokenResponse) {

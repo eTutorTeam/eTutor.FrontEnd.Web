@@ -10,6 +10,7 @@ import {ClickOutsideModule} from 'ng4-click-outside';
 import { ParentChildrenManagerComponent } from './parent-children-manager/parent-children-manager.component';
 import { StudentListItemComponent } from './parent-children-manager/student-list-item/student-list-item.component';
 import {NgxLoadingModule} from 'ngx-loading';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {NgxLoadingModule} from 'ngx-loading';
     FormsModule,
     ReactiveFormsModule,
     ClickOutsideModule,
-    NgxLoadingModule
+    NgxLoadingModule,
+      NgxSkeletonLoaderModule
   ]
 })
 export class ParentsModule { }
