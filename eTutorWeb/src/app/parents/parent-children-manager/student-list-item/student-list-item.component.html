@@ -1,11 +1,11 @@
 <div class="student-list-item">
     <div class="profile-img">
-        <img src="https://www.parenttoolkit.com/images/dmImage/SourceImage/standard_1500x1125_teengirl.jpg">
+        <img [src]="student.profileImageUrl">
     </div>
     <div class="info">
-        <span class="name">Eliana Estevez</span>
-        <span>eliasaestevez@hotmail.com</span>
-        <span>Edad: 15</span>
+        <span class="name">{{student.fullName}}</span>
+        <span>{{student.email}}</span>
+        <span>Edad: {{student.age}}</span>
     </div>
     <div class="controls">
         <div class="field">

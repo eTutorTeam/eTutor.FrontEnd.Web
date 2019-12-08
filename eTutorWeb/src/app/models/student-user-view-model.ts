@@ -4,4 +4,8 @@ export interface StudentUserViewModel {
     lastName: string;
     fullName: string;
     email: string;
+    isActive: boolean;
+    birthDate: Date;
+    profileImageUrl: string;
+    age: number;
 }

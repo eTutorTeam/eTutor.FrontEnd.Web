@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ToastNotificationService} from '../../services/toast-notification.service';
+import {ParentsService} from '../../services/parents.service';
+import {StudentUserViewModel} from '../../models/student-user-view-model';
 
 @Component({
   selector: 'app-parent-children-manager',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentChildrenManagerComponent implements OnInit {
 
-  constructor() { }
+  isLoading = false;
+  students: StudentUserViewModel[] = [];
+
+  constructor(
+      private notificationService: ToastNotificationService,
+      private parentsService: ParentsService
+  ) { }
 
   ngOnInit() {
+    this.loadStudents().catch(err => {
+      this.isLoading = false;
+      this.notificationService.showError('Error', err);
+    });
+  }
+
+  private async loadStudents() {
+    this.isLoading = true;
+    this.students = await this.parentsService.getMyStudents();
+    this.isLoading = false;
   }
 
 }

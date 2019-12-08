@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {StudentUserViewModel} from '../../../models/student-user-view-model';
 
 @Component({
   selector: 'app-student-list-item',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class StudentListItemComponent implements OnInit {
 
   idKey =  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  @Input() student: StudentUserViewModel;
 
   constructor() { }
 

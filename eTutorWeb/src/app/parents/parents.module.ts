@@ -9,6 +9,7 @@ import { ParentNavbarComponent } from './parent-navbar/parent-navbar.component';
 import {ClickOutsideModule} from 'ng4-click-outside';
 import { ParentChildrenManagerComponent } from './parent-children-manager/parent-children-manager.component';
 import { StudentListItemComponent } from './parent-children-manager/student-list-item/student-list-item.component';
+import {NgxLoadingModule} from 'ngx-loading';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { StudentListItemComponent } from './parent-children-manager/student-list
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    NgxLoadingModule
   ]
 })
 export class ParentsModule { }
