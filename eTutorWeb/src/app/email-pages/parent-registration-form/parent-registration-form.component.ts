@@ -79,12 +79,20 @@ export class ParentRegistrationFormComponent implements OnInit, OnDestroy {
     this.route.queryParams.subscribe(params => {
       this.studentId = params.student;
       this.parentEmail = params.email;
+      this.checkIfScreenIsValid();
       this.email.patchValue(this.parentEmail);
       this.getUserInformation().catch(err => {
         console.log(err);
         this.toastNotificationService.showError('Error', err);
       });
     });
+  }
+
+  private checkIfScreenIsValid() {
+    if (this.studentId === undefined || this.parentEmail === undefined) {
+      this.toastNotificationService.showWarningMessage('Cuidado', 'No puede visitar esta pantalla sin enviar los parametros correctos');
+      this.router.navigate(['pages/login']);
+    }
   }
 
   private async getUserInformation() {

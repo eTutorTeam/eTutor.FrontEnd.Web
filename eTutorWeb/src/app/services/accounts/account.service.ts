@@ -24,7 +24,7 @@ export class AccountService {
   } 
 
   
-  async loginUser(loginRequest: LoginRequest) : Promise<UserTokenResponse> {
+  async loginUser(loginRequest: LoginRequest): Promise<UserTokenResponse> {
     const response = await this.http.post<UserTokenResponse>(`${this.apiBaseUrl}/api/accounts/login`, loginRequest).toPromise();
     this.user = response;
     await this.saveUserToStorage(this.user);
@@ -37,8 +37,8 @@ export class AccountService {
     if (this.user != null) {
       localStorage.removeItem(this.userStorageKey);
       this.user = null;
-      this.router.navigate(['pages/login'])
-    }    
+    }
+    this.router.navigate(['pages/login']);
   }
 
   async updateUserVariable() {

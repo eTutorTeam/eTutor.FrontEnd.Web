@@ -1,3 +1,4 @@
+
 @import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
 
 $primary: #16A9FF;
@@ -8,5 +9,7 @@ $warning: $yellow;
 $danger: #D24437;
 $dark: $grey-darker;
 $text: $grey-dark;
+
+$switch-background: $danger;
 
 @import '../../node_modules/bulma/sass/utilities/_all.sass';

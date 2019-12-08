@@ -1,0 +1,16 @@
+<div class="content">
+    <ngx-loading [show]="isLoading"></ngx-loading>
+    <div class="title-item">
+        <h3>Estudiantes Asociados</h3>
+    </div>
+    <div class="title-item" *ngIf="students.length === 0 && !isLoading">
+        <h1>No tiene estudiantes asociados a su cuenta</h1>
+    </div>
+
+    <app-student-list-item *ngFor="let student of students"
+                           [student]="student"
+    ></app-student-list-item>
+
+</div>
+
+

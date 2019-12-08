@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { RoleTypes } from './enums/role-types.enum';
-import { RoleAuthGuard } from './services/accounts/role-auth.guard';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {RoleTypes} from './enums/role-types.enum';
+import {RoleAuthGuard} from './services/accounts/role-auth.guard';
 import {NotFoundComponent} from './not-found/not-found.component';
 
 
@@ -22,6 +22,14 @@ const routes: Routes = [
   {
     path: 'emails',
     loadChildren: () => import('./email-pages/email-pages.module').then(m => m.EmailPagesModule)
+  },
+  {
+    path: 'parent',
+    loadChildren: () => import('./parents/parents.module').then(m => m.ParentsModule),
+    data: {
+      roles: [RoleTypes.Parent]
+    },
+    canActivate: [RoleAuthGuard]
   },
   {
     path: '**', component: NotFoundComponent

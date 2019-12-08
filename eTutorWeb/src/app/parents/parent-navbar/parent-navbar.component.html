@@ -1,0 +1,42 @@
+
+<div class="navbar-container">
+  <nav>
+    <div class="left" *ngIf="parentProfile !== undefined">
+      <div class="profile">
+        <img [src]="parentProfile.profileImageUrl ">
+      </div>
+      <div class="content">
+        <p>{{parentProfile.fullName}}</p>
+      </div>
+    </div>
+    <div class="left" *ngIf="parentProfile === undefined">
+      <div class="content">
+        ...
+      </div>
+    </div>
+    <div class="center">
+      <div class="brand">
+        <img src="../../../assets/logo-dark.png" />
+      </div>
+    </div>
+    <div class="right">
+      <div class="dropdown"  (clickOutside)="closeDropDown()"  [ngClass]="{'is-active': isMenuActive}">
+        <div class="dropdown-trigger">
+          <button class="options-btn" aria-haspopup="true" aria-controls="dropdown-menu" (click)="openDropDown()">
+              <i class="fas fa-cog"></i>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a class="dropdown-item">
+             Cambiar Contraseña
+            </a>
+            <a class="dropdown-item" (click)="logoutUser()">
+              Cerrar Sesión
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
