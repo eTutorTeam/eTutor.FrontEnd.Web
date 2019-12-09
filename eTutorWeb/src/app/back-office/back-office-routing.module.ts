@@ -10,7 +10,7 @@ const routes: Routes = [
     component: BackOfficeLayoutComponent,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         component: BackOfficeDashboardComponent
       },
       {
@@ -22,6 +22,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/subjects-management/subjects-management.module').then(m => m.SubjectsManagementModule)
       }
     ]
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   }
 ];
 

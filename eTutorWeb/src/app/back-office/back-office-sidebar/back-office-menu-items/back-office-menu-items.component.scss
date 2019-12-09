@@ -59,5 +59,13 @@ ul.menu-items-list {
         }
       }
     }
+
+    &.wrapped {
+      li {
+        span {
+          display: none;
+        }
+      }
+    }
   }
 }

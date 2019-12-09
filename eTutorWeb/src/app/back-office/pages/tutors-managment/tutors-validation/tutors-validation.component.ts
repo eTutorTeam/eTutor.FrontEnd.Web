@@ -34,6 +34,16 @@ export class TutorsValidationComponent implements OnInit {
     });
   }
 
+  inactivateTutor(id: number) {
+    this.isLoading = true;
+    this.tutorsService.inactivateTutor(id).then(res => {
+      this.loadData();
+    }).catch( err => {
+      this.isLoading = false;
+      this.toastNotificationService.showError('Error', err);
+    });
+  }
+
   private loadData() {
     this.loadDataAsync().catch(err => {
       this.isLoading = false;

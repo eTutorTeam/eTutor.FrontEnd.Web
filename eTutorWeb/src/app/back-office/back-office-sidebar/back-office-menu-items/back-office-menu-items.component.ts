@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BackOfficeMenuItem} from '../../../models/back-office-menu-item';
 
 @Component({
@@ -8,16 +8,22 @@ import {BackOfficeMenuItem} from '../../../models/back-office-menu-item';
 })
 export class BackOfficeMenuItemsComponent implements OnInit {
 
+  @Input() wrapped = false;
   items: BackOfficeMenuItem[] = [
+    {
+      route: '/admin/dashboard',
+      icon: 'fas fa-tachometer-alt',
+      label: 'Dashboard'
+    },
     {
       route: '/admin/tutors',
       icon: 'fas fa-chalkboard-teacher',
-      label: 'Gestion Tutores'
+      label: 'Gestión de Tutores'
     },
     {
-      route: '#',
+      route: '/admin/subjects',
       icon: 'fas fa-school',
-      label: 'DEMO BUTTON'
+      label: 'Gestión de Materias'
     }
   ];
   constructor() { }

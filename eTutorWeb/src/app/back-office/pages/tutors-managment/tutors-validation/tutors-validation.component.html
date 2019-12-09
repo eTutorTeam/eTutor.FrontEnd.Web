@@ -42,7 +42,7 @@
         <td>{{tutor.personalId | mask: '000-0000000-0'}}</td>
         <td>{{tutor.email}}</td>
         <td>
-          <button class="button is-primary" disabled>NOT IMPLEMENTED</button>
+          <button class="button is-primary"  (click)="inactivateTutor(tutor.id)">Desactivar</button>
         </td>
       </tr>
       </tbody>
