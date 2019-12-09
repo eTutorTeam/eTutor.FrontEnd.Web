@@ -7,10 +7,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ForgetPasswordPageComponent } from './forget-password-page/forget-password-page.component';
 
 
 @NgModule({
-  declarations: [PagesLayoutComponent, LoginPageComponent],
+  declarations: [PagesLayoutComponent, LoginPageComponent, ForgetPasswordPageComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
