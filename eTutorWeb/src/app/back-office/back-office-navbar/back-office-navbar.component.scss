@@ -1,0 +1,56 @@
+@import '../../../theme/variables';;
+
+.nav {
+  height: 60px;
+  display: flex;
+  .burger {
+    button {
+      margin: 15px;
+      font-size: 1.3em;
+      color: white;
+      border: none;
+      background: transparent;
+      display: inline;
+      cursor: pointer;
+      &:hover {
+        background: rgba(0,0,0,0.2)
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    height: inherit;
+    width: 100%;
+    background: $primary;
+    padding-right: 20px;
+    align-items: center;
+    flex-flow: row-reverse;
+    text-align: right;
+    button {
+      border-radius: 50px;
+      background: $info;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      outline: 0;
+      cursor: pointer;
+      &:hover {
+        background: $link;
+      }
+      &:focus {
+        outline: 0;
+        background: $link;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $desktop) {
+    .burger {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="student-list-item">
+    <div class="profile-img">
+        <img [src]="student.profileImageUrl">
+    </div>
+    <div class="info">
+        <span class="name">{{student.fullName}}</span>
+        <span>{{student.email}}</span>
+        <span>Edad: {{student.age}}</span>
+    </div>
+    <div class="controls">
+        <div class="field">
+            <input [id]="idKey" type="checkbox" (click)="toggleStudentState()" [checked]="checked" name="switchRoundedSuccess" class="switch is-rounded is-success">
+            <label [for]="idKey"></label>
+        </div>
+    </div>
+    <div class="loading" *ngIf="isLoading">
+    </div>
+</div>

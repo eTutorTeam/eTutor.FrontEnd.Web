@@ -1,0 +1,48 @@
+@import '../../../../node_modules/bulma/sass/utilities/initial-variables';
+$side-bar-width: 270px;
+$wrapped-width: 80px;
+
+.sidebar-content {
+  display: flexbox;
+  flex-direction: row;
+  .logo {
+    margin: -5px 15px;
+    text-align: center;
+    .normal {
+      display: block;
+    }
+
+    .small {
+      display: none;
+      width: 50px;
+    }
+  }
+
+  .menu-items {
+    margin-top: 10px;
+    background: rgba(0, 255, 255, 0.49);
+    padding: 0px;
+  }
+
+  @media only screen and (max-width: $desktop) {
+    .logo {
+      margin: -15px 10px;
+      .small {
+        display: block;
+      }
+      .normal {
+        display: none;
+      }
+    }
+  }
+
+  .logo.wrapped {
+    margin: -15px 10px;
+      .small {
+        display: block;
+      }
+      .normal {
+        display: none;
+      }
+  }
+}

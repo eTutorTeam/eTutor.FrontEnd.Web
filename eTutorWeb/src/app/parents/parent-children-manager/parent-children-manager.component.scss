@@ -1,0 +1,14 @@
+@import '../../../theme/variables';
+
+.content {
+  background: $white;
+  border-radius: 20px;
+  height: 80vh;
+  padding: 20px 25px;
+  box-shadow: 1px 1px 13px 1px rgba(0,0,0,0.4);
+  overflow-y: auto;
+  .title-item {
+    text-align: center;
+    width: 100%;
+  }
+}

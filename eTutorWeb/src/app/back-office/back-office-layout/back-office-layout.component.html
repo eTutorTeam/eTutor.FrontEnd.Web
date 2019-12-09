@@ -1,0 +1,13 @@
+<div class="content" [ngClass]="{'wrapped': isWrapped}">
+  <div class="sidebar has-background-info">
+    <app-back-office-sidebar [wrapped]="isWrapped"></app-back-office-sidebar>
+  </div>
+  <div class="wrapper">
+    <app-back-office-navbar [wrapped]="isWrapped" (burgerClick)="openCloseMenu()"></app-back-office-navbar>
+    <div class="body-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+

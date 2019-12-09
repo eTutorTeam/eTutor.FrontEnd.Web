@@ -1,0 +1,32 @@
+.bg {
+  height: 150vh;
+  position: fixed;
+  width: 110%;
+  z-index: -1;
+}
+
+.page-container {
+  margin-top: 10px;
+  border-radius: 5px;
+
+  .card {
+    border-radius: 5px;
+    text-align: center;
+  }
+}
+
+.logo-container {
+  text-align: center;
+}
+
+
+h1 {
+  font-weight: bold;
+  font-size: 3em;
+  color: #D24437;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.5em;
+}
