@@ -4,6 +4,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import { SubjectsListComponent } from './subjects-list/subjects-list.component';
 import {SharedModule} from '../../../shared/shared.module';
+import {NgxLoadingModule} from 'ngx-loading';
+import {MaterialModule} from '../../../shared/material/material.module';
 
 const routes: Routes = [
   {
@@ -19,7 +21,9 @@ const routes: Routes = [
       FormsModule,
       ReactiveFormsModule,
       SharedModule,
-      RouterModule.forChild(routes)
+      RouterModule.forChild(routes),
+      NgxLoadingModule,
+      MaterialModule
   ]
 })
 export class SubjectsManagementModule { }

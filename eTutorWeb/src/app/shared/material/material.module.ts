@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule, MatTableModule} from '@angular/material';
 
 
 @NgModule({
@@ -9,11 +10,15 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     MatProgressSpinnerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }
