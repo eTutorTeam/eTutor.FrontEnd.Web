@@ -66,5 +66,12 @@ export class TextInputFormControlComponent implements OnInit, ControlValueAccess
     return false;
   }
 
+  checkIfValid() {
+    if (this.control.valid && (this.control.touched || this.control.dirty)){
+      return true;
+    }
+    return false;
+  }
+
 
 }

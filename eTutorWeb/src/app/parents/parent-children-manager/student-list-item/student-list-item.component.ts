@@ -8,7 +8,7 @@ import {ToastNotificationService} from '../../../services/toast-notification.ser
   templateUrl: './student-list-item.component.html',
   styleUrls: ['./student-list-item.component.scss']
 })
-export class StudentListItemComponent implements OnInit{
+export class StudentListItemComponent implements OnInit {
 
   isLoading = false;
   idKey =  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
