@@ -1,6 +1,8 @@
-$bg-color: #3f7fd1;
-$bg-color-accent: #4a7fb2;
-$bg-hover-color: #1d2b8b;
+@import "../../../../../node_modules/bulma/sass/utilities/initial-variables";
+$bg-color: #4a7fb2;
+$bg-color-accent: $bg-color;
+$bg-hover-color: #005f9f;
+$bg-active-color: #006faf;
 
 ul.menu-items-list {
   list-style: none;
@@ -14,7 +16,6 @@ ul.menu-items-list {
     background: $bg-color;
     transition: all 0.3s ease;
     color: white;
-    border-bottom: solid thin rgba(255,255,255,0.6);
     li {
       width: 100%;
       list-style-type: none;
@@ -32,8 +33,7 @@ ul.menu-items-list {
         width: 100%;
         transition: all 0.3s ease;
         background: $bg-color-accent;
-        padding: 20px;
-        border-left:  solid thin rgba(255,255,255,0.6);;
+        padding: 10px;
         &:hover {
           background: $bg-hover-color;
         }
@@ -43,11 +43,21 @@ ul.menu-items-list {
       background: $bg-hover-color;
       color: white;
     }
-    &:last-child {
-      border-bottom: solid thin rgba(255,255,255,0.3);
+    &.is-active {
+      background: $bg-hover-color;
+      li {
+        span {
+          background: $bg-hover-color;
+        }
+      }
     }
-    &:first-child {
-      border-top: solid thin rgba(255,255,255,0.3);
+
+    @media only screen and (max-width: $desktop) {
+      li {
+        span {
+          display: none;
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserAdminResponseModel} from '../../../models/user-admin-response-model';
-import {TutorsService} from '../../../services/tutors.service';
-import {ToastNotificationService} from '../../../services/toast-notification.service';
+import {UserAdminResponseModel} from '../../../../models/user-admin-response-model';
+import {TutorsService} from '../../../../services/tutors.service';
+import {ToastNotificationService} from '../../../../services/toast-notification.service';
 
 @Component({
   selector: 'app-tutors-validation',

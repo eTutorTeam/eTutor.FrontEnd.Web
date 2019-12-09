@@ -10,13 +10,12 @@ $wrapped-width: 80px;
   .sidebar {
     height: 100vh;
     overflow-y: auto;
-    background: green;
     width: $side-bar-width;
     transition: all 0.3s ease;
   }
 
   .wrapper {
-    width: 100%;
+    width: calc(100% - 250px);
     .body-content {
       padding: 20px;
     }
