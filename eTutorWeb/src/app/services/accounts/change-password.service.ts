@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {ForgetPasswordChangeRequest} from '../../models/forget-password-change-request';
+import {ChangePasswordRequest} from '../../models/change-password-request';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class ChangePasswordService {
 
   async changeUserPasswordUsingChangePasswordId(changePasswordId: string, request: ForgetPasswordChangeRequest) {
     return this.http.put(`${this.apiBaseUrl}/api/accounts/forget-password/${changePasswordId}`, request).toPromise();
+  }
+
+  async changeUserPasswordForLoggedUser(changeRequest: ChangePasswordRequest) {
+    return this.http.put(`${this.apiBaseUrl}/api/accounts/change-password`, changeRequest).toPromise();
   }
 
 }

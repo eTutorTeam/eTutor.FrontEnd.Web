@@ -1,8 +1,9 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {AccountService} from '../../services/accounts/account.service';
 import {ToastNotificationService} from '../../services/toast-notification.service';
 import {UsersService} from '../../services/accounts/users.service';
 import {UserResponse} from '../../models/user-response';
+import {ChangeUserPasswordComponent} from '../../shared/components/change-user-password/change-user-password.component';
 
 @Component({
   selector: 'app-parent-navbar',
@@ -13,6 +14,8 @@ export class ParentNavbarComponent implements OnInit {
 
   isMenuActive = false;
   parentProfile: UserResponse;
+  @ViewChild(ChangeUserPasswordComponent, {static: true}) changePasswordComponent: ChangeUserPasswordComponent;
+
   constructor(
       private accountService: AccountService,
       private notificationService: ToastNotificationService,
@@ -23,6 +26,11 @@ export class ParentNavbarComponent implements OnInit {
     this.getUserProfile().catch(err => {
       this.notificationService.showError('Error', err);
     });
+  }
+
+  openPasswordModal() {
+    this.changePasswordComponent.openModal();
+    this.closeDropDown();
   }
 
   openDropDown() {
