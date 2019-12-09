@@ -19,11 +19,10 @@ export class AccountService {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) { 
+  ) {
     this.helper = new JwtHelperService();
-  } 
+  }
 
-  
   async loginUser(loginRequest: LoginRequest): Promise<UserTokenResponse> {
     const response = await this.http.post<UserTokenResponse>(`${this.apiBaseUrl}/api/accounts/login`, loginRequest).toPromise();
     this.user = response;
@@ -43,21 +42,21 @@ export class AccountService {
 
   async updateUserVariable() {
     const storageContent = localStorage.getItem(this.userStorageKey);
-    if (storageContent != null && storageContent != undefined && storageContent.length > 0) {
+    if (storageContent !== null && storageContent !== undefined && storageContent.length > 0) {
       this.user = JSON.parse(storageContent);
     } else {
-      this.user = null
+      this.user = null;
     }
   }
 
   async getLoggedUser(): Promise<UserTokenResponse> {
     if (await this.isUserLoggedIn()) {
-      return this.user
+      return this.user;
     }
     return null;
   }
 
-  async isUserLoggedIn() : Promise<boolean> {
+  async isUserLoggedIn(): Promise<boolean> {
     await this.updateUserVariable();
     return this.user != null;
   }
@@ -68,7 +67,7 @@ export class AccountService {
       return true;
     }
 
-    return this.helper.isTokenExpired(this.user.token)
+    return this.helper.isTokenExpired(this.user.token);
   }
 
   private async saveUserToStorage(userToSave: UserTokenResponse) {

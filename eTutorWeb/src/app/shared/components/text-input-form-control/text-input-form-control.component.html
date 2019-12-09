@@ -1,17 +1,18 @@
 <div class="field">
   <label class="label">{{label}}</label>
-  <div class="control" [ngClass]="{'has-icons-left': hasIcon, 'has-icons-right': hasIconRight}">
+  <div class="control" [ngClass]="{'has-icons-left': hasIcon, 'has-icons-right': (hasIconRight || checkIfValid())}">
     <input class="input" [value]="value"
            (blur)="onTouched()"
            (input)="onChange($event.target.value)"
            [disabled]="disabled"
-           [ngClass]="{'is-danger': checkIfControlHasErrors()}"
+           [ngClass]="{'is-danger': checkIfControlHasErrors(), 'is-success': checkIfValid()}"
            [type]="type" [placeholder]="placeholder"/>
     <span class="icon is-small is-left" *ngIf="hasIcon">
       <i [class]="icon"></i>
     </span>
-    <span class="icon is-small is-right" *ngIf="hasIconRight">
-      <i [class]="iconRight"></i>
+    <span class="icon is-small is-right" *ngIf="hasIconRight || checkIfValid()">
+      <i [class]="iconRight" *ngIf="!checkIfValid()"></i>
+      <i class="fas fa-check" *ngIf="checkIfValid()"></i>
     </span>
     <div class="form-errors" *ngIf="checkIfControlHasErrors()">
       <p class="help is-danger" *ngIf="control.errors['required']">Este es un campo requerido</p>
