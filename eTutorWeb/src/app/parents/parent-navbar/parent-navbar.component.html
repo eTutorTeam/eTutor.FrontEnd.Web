@@ -28,7 +28,7 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu" role="menu">
           <div class="dropdown-content">
-            <a class="dropdown-item">
+            <a class="dropdown-item" (click)="openPasswordModal()">
              Cambiar Contraseña
             </a>
             <a class="dropdown-item" (click)="logoutUser()">
@@ -40,3 +40,4 @@
     </div>
   </nav>
 </div>
+<app-change-user-password #changePassComponent></app-change-user-password>
