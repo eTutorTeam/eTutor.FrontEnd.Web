@@ -9,6 +9,7 @@ import {SharedModule} from '../shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
 import {NgxLoadingModule} from 'ngx-loading';
 import { ParentRegistrationSuccessfulComponent } from './parent-registration-successful/parent-registration-successful.component';
+import { PasswordResetPageComponent } from './password-reset-page/password-reset-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'parent-registration-successful',
         component: ParentRegistrationSuccessfulComponent
+      },
+      {
+        path: 'password-reset/:changePasswordId',
+        component: PasswordResetPageComponent
       }
     ]
   }
@@ -32,7 +37,8 @@ const routes: Routes = [
   declarations: [
     ParentRegistrationFormComponent,
     EmailPagesLayoutComponent,
-    ParentRegistrationSuccessfulComponent
+    ParentRegistrationSuccessfulComponent,
+    PasswordResetPageComponent
   ],
   imports: [
     CommonModule,
