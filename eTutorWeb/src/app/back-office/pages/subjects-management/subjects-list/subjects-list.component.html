@@ -1,12 +1,13 @@
 <h2>Gestión de Materías</h2>
 
-<div class="mat-elevation-z2">
-    <table mat-table *ngIf="rawData.length > 0">
+<div class="mat-elevation-z4">
+    <div *ngIf="rawData.length > 0">
+        <table mat-table>
 
-    </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-
-    <h5 class="has-text-centered" *ngIf="rawData.length <= 0">No hay materias registradas</h5>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    <h5 class="has-text-centered no-content" *ngIf="rawData.length <= 0">No hay materias registradas</h5>
 </div>
 
 <ngx-loading [show]="isLoading"></ngx-loading>
