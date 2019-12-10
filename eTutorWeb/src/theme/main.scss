@@ -1,9 +1,12 @@
 
 @import "./variables.scss";
 
+@import '../../node_modules/bulma/sass/utilities/_all.sass';
+
 @import "../../node_modules/bulma/bulma.sass";
 @import "../../node_modules/bulma-switch/src/sass/index.sass";
 @import "@fortawesome/fontawesome-free/css/all.css";
-
+@import "./bootstrap";
 @import "~ngx-toastr/toastr.css";
 @import "./material";
+@import "./animations/animations";

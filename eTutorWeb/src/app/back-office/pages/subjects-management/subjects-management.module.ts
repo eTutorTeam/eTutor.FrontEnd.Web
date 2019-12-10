@@ -6,24 +6,33 @@ import { SubjectsListComponent } from './subjects-list/subjects-list.component';
 import {SharedModule} from '../../../shared/shared.module';
 import {NgxLoadingModule} from 'ngx-loading';
 import {MaterialModule} from '../../../shared/material/material.module';
+import { SubjectModalComponent } from './subjects-list/subject-modal/subject-modal.component';
+import { SubjectFormComponent } from './subjects-list/subject-modal/subject-form/subject-form.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: SubjectsListComponent
-  },
+    {
+        path: '',
+        component: SubjectsListComponent
+    },
 ];
 
 @NgModule({
-  declarations: [SubjectsListComponent],
-  imports: [
-      CommonModule,
-      FormsModule,
-      ReactiveFormsModule,
-      SharedModule,
-      RouterModule.forChild(routes),
-      NgxLoadingModule,
-      MaterialModule
-  ]
+    declarations: [
+        SubjectsListComponent,
+        SubjectModalComponent,
+        SubjectFormComponent
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule,
+        RouterModule.forChild(routes),
+        NgxLoadingModule,
+        MaterialModule,
+        NgxSpinnerModule,
+    ],
+    entryComponents: []
 })
 export class SubjectsManagementModule { }
