@@ -51,7 +51,7 @@ export class SubjectsListComponent implements OnInit {
     this.stopLoading();
   }
 
-  private initializePage() {
+  initializePage() {
     this.startLoading();
     this.loadData().then(res => {
       this.stopLoading();
