@@ -2,8 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {SubjectResponse} from '../../../../models/subject-response';
 import {SubjectService} from '../../../../services/subject.service';
 import {ToastNotificationService} from '../../../../services/toast-notification.service';
-import {MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {SubjectModalComponent} from './subject-modal/subject-modal.component';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-subjects-list',
@@ -14,16 +15,19 @@ export class SubjectsListComponent implements OnInit {
 
   isLoading = false;
   rawData: SubjectResponse[] = [];
-  displayColumns = ['id', 'name', 'description', 'tutorsCount'];
+  displayColumns = ['id', 'name', 'description', 'tutorsCount', 'action'];
   dataSource = new MatTableDataSource<SubjectResponse>();
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(SubjectModalComponent, {static: false}) subjectModalComponent: SubjectModalComponent;
 
   constructor(
       private subjectService: SubjectService,
       private notificationService: ToastNotificationService,
+      private spinnerService: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
     this.initializePage();
   }
 
@@ -48,15 +52,18 @@ export class SubjectsListComponent implements OnInit {
   private async getSubjects() {
     this.rawData = await this.subjectService.getAllSubjects();
     this.dataSource.data = this.rawData;
+    this.dataSource.paginator = this.paginator;
     console.log(this.rawData, this.dataSource);
   }
 
   private startLoading() {
     this.isLoading = true;
+    this.spinnerService.show();
   }
 
   private stopLoading() {
     this.isLoading = false;
+    this.spinnerService.hide();
   }
 
 }

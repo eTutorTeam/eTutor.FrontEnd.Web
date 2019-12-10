@@ -7,6 +7,8 @@ import {SharedModule} from '../../../shared/shared.module';
 import {NgxLoadingModule} from 'ngx-loading';
 import {MaterialModule} from '../../../shared/material/material.module';
 import { SubjectModalComponent } from './subjects-list/subject-modal/subject-modal.component';
+import { SubjectFormComponent } from './subjects-list/subject-modal/subject-form/subject-form.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 const routes: Routes = [
     {
@@ -16,7 +18,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [SubjectsListComponent, SubjectModalComponent],
+    declarations: [
+        SubjectsListComponent,
+        SubjectModalComponent,
+        SubjectFormComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
@@ -25,6 +31,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         NgxLoadingModule,
         MaterialModule,
+        NgxSpinnerModule,
     ],
     entryComponents: []
 })

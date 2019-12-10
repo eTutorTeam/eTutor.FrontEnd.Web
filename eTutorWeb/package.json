@@ -31,6 +31,7 @@
     "ngx-loading": "^2.0.1",
     "ngx-mask": "^8.1.6",
     "ngx-skeleton-loader": "^1.2.2",
+    "ngx-spinner": "^8.0.3",
     "ngx-toastr": "^11.2.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",

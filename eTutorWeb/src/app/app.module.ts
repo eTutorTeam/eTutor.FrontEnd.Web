@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {NgxMaskModule, IConfig} from 'ngx-mask';
     ReactiveFormsModule,
     HttpClientModule,
     NgxMaskModule.forRoot(),
+    NgxSpinnerModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
