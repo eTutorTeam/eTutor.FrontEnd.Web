@@ -20,7 +20,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     if (isLogged && !req.headers.has('Authorization')) {
       let user = await this.accountService.getLoggedUser();
       if (await this.accountService.isTokenExpired()) {
-        await this.accountService.logoutUser()
+        await this.accountService.logoutUser();
         return;
       }
 

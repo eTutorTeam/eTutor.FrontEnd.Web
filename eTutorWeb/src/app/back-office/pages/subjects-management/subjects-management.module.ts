@@ -6,24 +6,26 @@ import { SubjectsListComponent } from './subjects-list/subjects-list.component';
 import {SharedModule} from '../../../shared/shared.module';
 import {NgxLoadingModule} from 'ngx-loading';
 import {MaterialModule} from '../../../shared/material/material.module';
+import { SubjectModalComponent } from './subjects-list/subject-modal/subject-modal.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: SubjectsListComponent
-  },
+    {
+        path: '',
+        component: SubjectsListComponent
+    },
 ];
 
 @NgModule({
-  declarations: [SubjectsListComponent],
-  imports: [
-      CommonModule,
-      FormsModule,
-      ReactiveFormsModule,
-      SharedModule,
-      RouterModule.forChild(routes),
-      NgxLoadingModule,
-      MaterialModule
-  ]
+    declarations: [SubjectsListComponent, SubjectModalComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule,
+        RouterModule.forChild(routes),
+        NgxLoadingModule,
+        MaterialModule,
+    ],
+    entryComponents: []
 })
 export class SubjectsManagementModule { }

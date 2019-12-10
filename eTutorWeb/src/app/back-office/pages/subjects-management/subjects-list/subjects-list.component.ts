@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {SubjectResponse} from '../../../../models/subject-response';
 import {SubjectService} from '../../../../services/subject.service';
 import {ToastNotificationService} from '../../../../services/toast-notification.service';
 import {MatTableDataSource} from '@angular/material';
+import {SubjectModalComponent} from './subject-modal/subject-modal.component';
 
 @Component({
   selector: 'app-subjects-list',
@@ -15,6 +16,7 @@ export class SubjectsListComponent implements OnInit {
   rawData: SubjectResponse[] = [];
   displayColumns = ['id', 'name', 'description', 'tutorsCount'];
   dataSource = new MatTableDataSource<SubjectResponse>();
+  @ViewChild(SubjectModalComponent, {static: false}) subjectModalComponent: SubjectModalComponent;
 
   constructor(
       private subjectService: SubjectService,
@@ -23,6 +25,10 @@ export class SubjectsListComponent implements OnInit {
 
   ngOnInit() {
     this.initializePage();
+  }
+
+  createSubject() {
+    this.subjectModalComponent.openCreateModal();
   }
 
   private initializePage() {
