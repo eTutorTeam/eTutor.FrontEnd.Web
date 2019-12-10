@@ -25,4 +25,12 @@ export class SubjectService {
   async postSubject(subject: SubjectRequest): Promise<SubjectResponse> {
     return this.http.post<SubjectResponse>(`${environment.apiBaseUrl}/api/subjects`, subject).toPromise();
   }
+
+  async putSubject(subject: SubjectRequest): Promise<SubjectResponse> {
+    return this.http.put<SubjectResponse>(`${environment.apiBaseUrl}/api/subjects`, subject).toPromise();
+  }
+
+  async deleteSubject(subjectId: number): Promise<SubjectResponse> {
+    return this.http.delete<SubjectResponse>(`${environment.apiBaseUrl}/api/subjects/${subjectId}`).toPromise();
+  }
 }

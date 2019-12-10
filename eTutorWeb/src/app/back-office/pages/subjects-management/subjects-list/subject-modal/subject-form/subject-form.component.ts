@@ -84,8 +84,13 @@ export class SubjectFormComponent implements OnInit {
   }
 
   private async updateSubject() {
-
+    if (this.subjectForm.invalid) {
+      return;
+    }
+    const value: SubjectRequest = this.subjectForm.value;
+    const res = await this.subjectsService.putSubject(value);
     this.notificationService.showSucessMessage('Exito!', 'La materia ha sido actualizada exitosamente');
+    return res;
   }
 
   private async createSubject() {
@@ -93,6 +98,7 @@ export class SubjectFormComponent implements OnInit {
       return;
     }
     const value: SubjectRequest = this.subjectForm.value;
+    this.subjectForm.patchValue({name: '', description: ''});
     const res = await this.subjectsService.postSubject(value);
     this.notificationService.showSucessMessage('Exito!', 'La materia ha sido creada exitosamente');
     return res;
@@ -100,12 +106,15 @@ export class SubjectFormComponent implements OnInit {
 
   resetForm() {
     this.hasError = false;
-    this.subjectForm.reset();
+    this.subjectForm.reset({
+      name: '',
+      description: ''
+    });
     this.subjectId = 0;
   }
 
   setCreateMode() {
-    this.subjectForm.reset();
+    this.resetForm();
   }
 
   setEditMode(subjectId: number) {
@@ -117,21 +126,24 @@ export class SubjectFormComponent implements OnInit {
     this.getSubjectData().catch(err => {
       this.notificationService.showError('Error!', err);
       this.hasError = true;
+      this.stopLoading();
     });
   }
 
   private async getSubjectData() {
+    this.startLoading();
     const subject: SubjectResponseTutorDetail = await this.subjectsService.getSubject(this.subjectId);
     this.subjectForm.patchValue(subject);
+    this.stopLoading();
   }
 
   private startLoading() {
     this.isLoading = true;
-    this.spinnerServie.show();
+    this.spinnerServie.show('subjectFormSpinner');
   }
 
   private stopLoading() {
     this.isLoading = false;
-    this.spinnerServie.hide();
+    this.spinnerServie.hide('subjectFormSpinner');
   }
 }

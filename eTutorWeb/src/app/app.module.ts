@@ -12,6 +12,11 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {NgZorroAntdModule, NZ_I18N, en_US, es_ES} from 'ng-zorro-antd';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+
+registerLocaleData(es);
 
 
 @NgModule({
@@ -36,7 +41,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }
+    },
+    { provide: NZ_I18N, useValue: es_ES }
   ],
   bootstrap: [AppComponent]
 })

@@ -3,20 +3,35 @@
 }
 
 
-table {
-  width: 100%;
-  table-layout: fixed;
-}
+//table {
+//  width: 100%;
+//  table-layout: fixed;
+//}
+//
+//
+//  .fixed {
+//    overflow: hidden;
+//    width:420px;
+//    text-overflow: ellipsis;
+//    white-space: nowrap;
+//    word-wrap: break-spaces;
+//  }
+//
+//  .item {
+//    display: flex;
+//  }
 
 
-  .fixed {
-    overflow: hidden;
-    width:420px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: break-spaces;
-  }
+  .ant-table-body {
+    table {
+      width: 100%;
+      table-layout: fixed;
 
-  .item {
-    display: flex;
+      .fixed {
+        width: 400px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
   }

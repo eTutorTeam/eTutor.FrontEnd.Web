@@ -9,6 +9,7 @@ import {MaterialModule} from '../../../shared/material/material.module';
 import { SubjectModalComponent } from './subjects-list/subject-modal/subject-modal.component';
 import { SubjectFormComponent } from './subjects-list/subject-modal/subject-form/subject-form.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import {NzDividerModule, NzPopconfirmModule, NzTableModule} from 'ng-zorro-antd';
 
 const routes: Routes = [
     {
@@ -32,6 +33,9 @@ const routes: Routes = [
         NgxLoadingModule,
         MaterialModule,
         NgxSpinnerModule,
+        NzTableModule,
+        NzDividerModule,
+        NzPopconfirmModule
     ],
     entryComponents: []
 })

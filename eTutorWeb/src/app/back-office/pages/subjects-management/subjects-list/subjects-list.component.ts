@@ -15,9 +15,6 @@ export class SubjectsListComponent implements OnInit {
 
   isLoading = false;
   rawData: SubjectResponse[] = [];
-  displayColumns = ['id', 'name', 'description', 'tutorsCount', 'action'];
-  dataSource = new MatTableDataSource<SubjectResponse>();
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(SubjectModalComponent, {static: false}) subjectModalComponent: SubjectModalComponent;
 
   constructor(
@@ -27,12 +24,31 @@ export class SubjectsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
     this.initializePage();
   }
 
   createSubject() {
     this.subjectModalComponent.openCreateModal();
+  }
+
+  editSubject(id: number) {
+    this.subjectModalComponent.openEditModal(id);
+  }
+
+  confirmDelete(subjectId: number) {
+    this.deleteSubject(subjectId).then(res => {
+      this.notificationService.showSucessMessage('Exito!', 'La materia fue eliminada exitosamente.');
+    }).catch(err => {
+      this.notificationService.showError('Error!', err);
+    });
+  }
+
+
+  private async deleteSubject(subjectId: number) {
+    this.startLoading();
+    await this.subjectService.deleteSubject(subjectId);
+    await this.loadData();
+    this.stopLoading();
   }
 
   private initializePage() {
@@ -51,10 +67,8 @@ export class SubjectsListComponent implements OnInit {
 
   private async getSubjects() {
     this.rawData = await this.subjectService.getAllSubjects();
-    this.dataSource.data = this.rawData;
-    this.dataSource.paginator = this.paginator;
-    console.log(this.rawData, this.dataSource);
   }
+
 
   private startLoading() {
     this.isLoading = true;

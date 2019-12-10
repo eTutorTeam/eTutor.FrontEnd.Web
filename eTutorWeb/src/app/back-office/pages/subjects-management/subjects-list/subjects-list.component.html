@@ -11,49 +11,41 @@
 </div>
 
 <div class="mat-elevation-z4">
-    <div *ngIf="rawData.length > 0">
-        <table mat-table [dataSource]="dataSource">
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef>Id</th>
-                <td mat-cell *matCellDef="let element"> {{element.id}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Nombre</th>
-                <td mat-cell *matCellDef="let element"> {{element.name}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="description">
-                <th mat-header-cell class="fixed" *matHeaderCellDef>Descripción</th>
-                <td mat-cell class="fixed" *matCellDef="let element"> {{element.description}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="tutorsCount">
-                <th mat-header-cell *matHeaderCellDef>Tutores</th>
-                <td mat-cell *matCellDef="let element"> {{element.tutorsCount}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element" class="actions">
-                    <div class="item">
-                        <button mat-mini-fab color="primary">
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        &nbsp;&nbsp;
-                        <button mat-mini-fab color="danger">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </div>
+    <div>
+       <nz-table #subjectTable [nzBordered]="true" nzSize="middle" [nzWidthConfig]="['5%', '170px', '40%', '40px', '60px']" [nzData]="rawData">
+           <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th class="fixed">Descripción</th>
+                <th>Tutores</th>
+                <th></th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr *ngFor="let row of subjectTable.data">
+                <td>{{row.id}}</td>
+                <td>{{row.name}}</td>
+                <td class="fixed">{{row.description}}</td>
+                <td class="has-text-centered">{{row.tutorsCount}}</td>
+                <td class="has-text-centered">
+                    <button class="button is-primary is-small is-outlined" (click)="editSubject(row.id)">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <button class="button is-danger is-small is-outlined"
+                            nz-popconfirm
+                            nzPopconfirmTitle="¿Está seguro de que desea borrar esta materia?"
+                            nzPopconfirmPlacement="top"
+                            (nzOnConfirm)="confirmDelete(row.id)"
+                    >
+                        <i class="fas fa-trash "></i>
+                    </button>
                 </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
-        </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </tr>
+           </tbody>
+       </nz-table>
     </div>
-    <h5 class="has-text-centered no-content" *ngIf="rawData.length <= 0">No hay materias registradas</h5>
     <ngx-spinner [fullScreen]="true" size="large" type="ball-clip-rotate-multiple">
     </ngx-spinner>
 </div>
