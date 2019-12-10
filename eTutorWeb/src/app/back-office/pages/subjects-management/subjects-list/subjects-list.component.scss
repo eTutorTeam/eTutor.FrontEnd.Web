@@ -1,0 +1,37 @@
+.no-content {
+  padding: 40px 10px;
+}
+
+
+//table {
+//  width: 100%;
+//  table-layout: fixed;
+//}
+//
+//
+//  .fixed {
+//    overflow: hidden;
+//    width:420px;
+//    text-overflow: ellipsis;
+//    white-space: nowrap;
+//    word-wrap: break-spaces;
+//  }
+//
+//  .item {
+//    display: flex;
+//  }
+
+
+  .ant-table-body {
+    table {
+      width: 100%;
+      table-layout: fixed;
+
+      .fixed {
+        width: 400px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }

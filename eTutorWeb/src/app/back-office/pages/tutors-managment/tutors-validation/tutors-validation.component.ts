@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserAdminResponseModel} from '../../../models/user-admin-response-model';
-import {TutorsService} from '../../../services/tutors.service';
-import {ToastNotificationService} from '../../../services/toast-notification.service';
+import {UserAdminResponseModel} from '../../../../models/user-admin-response-model';
+import {TutorsService} from '../../../../services/tutors.service';
+import {ToastNotificationService} from '../../../../services/toast-notification.service';
 
 @Component({
   selector: 'app-tutors-validation',
@@ -27,6 +27,16 @@ export class TutorsValidationComponent implements OnInit {
   activateTutor(id: number) {
     this.isLoading = true;
     this.tutorsService.activateTutor(id).then(res => {
+      this.loadData();
+    }).catch( err => {
+      this.isLoading = false;
+      this.toastNotificationService.showError('Error', err);
+    });
+  }
+
+  inactivateTutor(id: number) {
+    this.isLoading = true;
+    this.tutorsService.inactivateTutor(id).then(res => {
       this.loadData();
     }).catch( err => {
       this.isLoading = false;

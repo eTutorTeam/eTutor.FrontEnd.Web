@@ -3,7 +3,7 @@ $side-bar-width: 270px;
 $wrapped-width: 80px;
 
 .sidebar-content {
-  display: flexbox;
+  display: block;
   flex-direction: row;
   .logo {
     margin: -5px 15px;

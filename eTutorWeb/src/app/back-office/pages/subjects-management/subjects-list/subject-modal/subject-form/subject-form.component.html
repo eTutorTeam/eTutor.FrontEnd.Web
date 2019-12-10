@@ -1,0 +1,31 @@
+<div *ngIf="!hasError; else hasErrorMessage">
+    <form [formGroup]="subjectForm" (submit)="submitForm()">
+        <div class="columns">
+            <div class="column">
+                <app-text-input-form-control label="Nombre"
+                                             placeholder="El nombre de la materia"
+                                             icon="fas fa-bullseye"
+                                             [control]="name"
+                                             type="text"
+                                             formControlName="name"
+                ></app-text-input-form-control>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <app-text-input-form-control label="Descripción"
+                                             placeholder="La descripción de la materia"
+                                             icon="fas fa-bullseye"
+                                             [control]="description"
+                                             type="text"
+                                             formControlName="description"
+                ></app-text-input-form-control>
+            </div>
+        </div>
+    </form>
+</div>
+<ngx-spinner name="subjectFormSpinner" [fullScreen]="false" size="medium"></ngx-spinner>
+
+<ng-template #hasErrorMessage>
+    <h3 class="has-text-centered">Ha ocurrido un error obteniendo los datos de la materia</h3>
+</ng-template>

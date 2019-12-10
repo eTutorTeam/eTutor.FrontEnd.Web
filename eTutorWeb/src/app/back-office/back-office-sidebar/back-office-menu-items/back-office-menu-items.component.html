@@ -1,5 +1,5 @@
 <ul class="menu-items-list">
-  <a *ngFor="let item of items" [routerLink]="item.route">
+  <a *ngFor="let item of items" [routerLink]="item.route" routerLinkActive="is-active" [ngClass]="{'wrapped': wrapped}">
   <li>
     <div class="icon">
       <i [class]="item.icon"></i>
