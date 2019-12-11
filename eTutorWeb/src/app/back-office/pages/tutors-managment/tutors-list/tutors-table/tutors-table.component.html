@@ -1,0 +1,29 @@
+<div>
+    <nz-table #tutorsTable [nzData]="tutorUsers">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Estatus</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tutor of tutorUsers">
+                <td>{{tutor.fullName}}</td>
+                <td>{{tutor.email}}</td>
+                <td>
+                    <div class="field">
+                        <input [id]="tutor.id + tutor.email + 'tutor'" type="checkbox" (click)="changeTutorState(tutor.id)" class="switch is-rounded is-outlined" [checked]="tutor.isActive">
+                        <label [for]="tutor.id + tutor.email + 'tutor'"></label>
+                    </div>
+                </td>
+                <td>
+                    <button class="button is-small is-outlined">
+                        <i class="fas fa-user-cog"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
