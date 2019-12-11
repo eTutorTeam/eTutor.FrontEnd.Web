@@ -22,8 +22,7 @@ export class TutorSubjectAssignationComponent implements OnInit {
   constructor(
       private notificationSevice: ToastNotificationService,
       private spinnerService: NgxSpinnerService,
-      private tutorSubjectService: TutorSubjectService,
-      private subjectsService: SubjectService
+      private tutorSubjectService: TutorSubjectService
   ) { }
 
   ngOnInit() {
@@ -66,7 +65,8 @@ export class TutorSubjectAssignationComponent implements OnInit {
   }
 
   private async sendChosenSubjectIds() {
-
+    const ids: number[] = this.chosenSubjects.map(sub => sub.id);
+    await this.tutorSubjectService.assignSubjectsToTutors(this.tutorId, ids);
   }
 
 
@@ -79,12 +79,10 @@ export class TutorSubjectAssignationComponent implements OnInit {
 
   private async getNotAssingedSubjects(tutorId: number) {
     this.availableSubjects = await this.tutorSubjectService.getSubjectsNotAssignedToTutor(tutorId);
-    console.log(this.availableSubjects, 'AVAILABLE SUBJECTS');
   }
 
   private async getChosenSubjects(tutorId: number) {
     this.chosenSubjects = await this.tutorSubjectService.getSubjectsForTutorByTutorId(tutorId);
-    console.log(this.chosenSubjects, 'CHOSEN SUBJECTS');
   }
 
   private startLoading() {
