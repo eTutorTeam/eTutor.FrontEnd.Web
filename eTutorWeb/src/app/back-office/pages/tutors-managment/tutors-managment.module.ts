@@ -13,6 +13,7 @@ import { TutorsModalComponent } from './tutors-list/tutors-table/tutors-modal/tu
 // tslint:disable-next-line:max-line-length
 import { TutorSubjectAssignationComponent } from './tutors-list/tutors-table/tutors-modal/tutor-subject-assignation/tutor-subject-assignation.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 const routes: Routes = [
   {
@@ -40,7 +41,8 @@ const routes: Routes = [
     NzPopconfirmModule,
     NzPopoverModule,
     NzModalModule,
-    DragDropModule
+    DragDropModule,
+    NgxSpinnerModule
   ]
 })
 export class TutorsManagmentModule { }

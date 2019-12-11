@@ -18,15 +18,17 @@ export class TutorsModalComponent implements OnInit {
   }
 
   openModal(tutorId: number) {
+    this.tutorSubjectAssignationComponent.getTutorData(tutorId);
     this.isVisible = true;
   }
 
   closeModal() {
     this.isVisible = false;
+    this.tutorSubjectAssignationComponent.reset();
   }
 
   submitChanges() {
-
+    this.tutorSubjectAssignationComponent.submitChanges();
   }
 
   startLoading() {

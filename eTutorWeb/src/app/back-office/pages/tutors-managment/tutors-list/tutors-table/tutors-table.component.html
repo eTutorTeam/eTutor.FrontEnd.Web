@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let tutor of tutorUsers">
+            <tr *ngFor="let tutor of tutorsTable.data">
                 <td>{{tutor.fullName}}</td>
                 <td>{{tutor.email}}</td>
                 <td>
@@ -19,7 +19,7 @@
                     </div>
                 </td>
                 <td>
-                    <button class="button is-small is-outlined" (click)="manageSubjects()">
+                    <button class="button is-small is-outlined" (click)="manageSubjects(tutor.id)">
                         <i class="fas fa-user-cog"></i>
                     </button>
                 </td>
