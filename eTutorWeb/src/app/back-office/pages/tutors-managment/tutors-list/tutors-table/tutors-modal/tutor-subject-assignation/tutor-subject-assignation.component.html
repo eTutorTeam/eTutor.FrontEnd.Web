@@ -1,0 +1,33 @@
+
+<div class="columns">
+    <div class="column">
+        <div class="available-subjects-container">
+            <h2>Materias Disponibles</h2>
+            <div
+                    cdkDropList
+                    #availableList="cdkDropList"
+                    class="example-list"
+                    [cdkDropListData]="availableSubjects"
+                    cdkDropListSortingDisabled
+                    [cdkDropListConnectedTo]="[chosenList]"
+                    (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of availableSubjects" cdkDrag>{{item.name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="assigned-subjects-container">
+            <h2>Materias Asignadas</h2>
+            <div
+                    cdkDropList
+                    #chosenList="cdkDropList"
+                    class="example-list"
+                    [cdkDropListData]="chosenSubjects"
+                    [cdkDropListConnectedTo]="[availableList]"
+                    (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of chosenSubjects" cdkDrag>{{item.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner [fullScreen]="false" type="ball-pulse"></ngx-spinner>

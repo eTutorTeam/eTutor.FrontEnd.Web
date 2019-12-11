@@ -5,10 +5,10 @@ import {ToastNotificationService} from '../../../../services/toast-notification.
 
 @Component({
   selector: 'app-tutors-validation',
-  templateUrl: './tutors-validation.component.html',
-  styleUrls: ['./tutors-validation.component.scss']
+  templateUrl: './tutors-list.component.html',
+  styleUrls: ['./tutors-list.component.scss']
 })
-export class TutorsValidationComponent implements OnInit {
+export class TutorsListComponent implements OnInit {
 
   tableColumns = ['Id', 'Nombre', 'Cedula', 'Correo Electronico', ''];
   inactiveTutors: UserAdminResponseModel[] = [];

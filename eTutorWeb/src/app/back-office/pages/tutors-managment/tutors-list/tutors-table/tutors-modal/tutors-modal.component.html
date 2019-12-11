@@ -1,0 +1,4 @@
+<nz-modal [(nzVisible)]="isVisible" (nzOnOk)="submitChanges()"
+          (nzOnCancel)="closeModal()" nzWidth="70%" nzOkText="Guardar Cambios">
+    <app-tutor-subject-assignation (submitted)="closeModal()" ></app-tutor-subject-assignation>
+</nz-modal>

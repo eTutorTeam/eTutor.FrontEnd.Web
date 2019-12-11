@@ -1,0 +1,22 @@
+
+<div class="columns">
+  <div class="column">
+    <h3>Gestión de Tutores</h3>
+  </div>
+</div>
+
+<div class="mat-elevation-z4">
+  <div class="columns">
+    <div class="column is-desktop">
+      <h4>Activos</h4>
+      <app-tutors-table [tutorUsers]="activeTutors" (stateChanged)="inactivateTutor($event)"></app-tutors-table>
+    </div>
+    <div class="column is-desktop">
+      <h4>Inactivos</h4>
+      <app-tutors-table [tutorUsers]="inactiveTutors" (stateChanged)="activateTutor($event)"></app-tutors-table>
+    </div>
+  </div>
+</div>
+
+
+<ngx-loading [show]="isLoading"></ngx-loading>
