@@ -10,6 +10,8 @@ import { NgxMaskModule } from 'ngx-mask';
 import {NgxLoadingModule} from 'ngx-loading';
 import { ParentRegistrationSuccessfulComponent } from './parent-registration-successful/parent-registration-successful.component';
 import { PasswordResetPageComponent } from './password-reset-page/password-reset-page.component';
+import { ValidateEmailComponent } from './validate-email/validate-email.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 const routes: Routes = [
   {
@@ -27,6 +29,10 @@ const routes: Routes = [
       {
         path: 'password-reset/:changePasswordId',
         component: PasswordResetPageComponent
+      },
+      {
+        path: 'validate-email/:emailToken',
+        component: ValidateEmailComponent
       }
     ]
   }
@@ -38,7 +44,8 @@ const routes: Routes = [
     ParentRegistrationFormComponent,
     EmailPagesLayoutComponent,
     ParentRegistrationSuccessfulComponent,
-    PasswordResetPageComponent
+    PasswordResetPageComponent,
+    ValidateEmailComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +54,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     SharedModule,
     NgxMaskModule.forChild(),
-    NgxLoadingModule
+    NgxLoadingModule,
+    NgxSpinnerModule
   ]
 })
 export class EmailPagesModule { }
