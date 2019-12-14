@@ -20,4 +20,8 @@ export class UsersService {
   async getUserProfile(): Promise<UserResponse> {
     return this.http.get<UserResponse>(`${environment.apiBaseUrl}/api/users/profile`).toPromise();
   }
+
+  async postEmailValidationToken(token: string) {
+    return this.http.post(`${environment.apiBaseUrl}/api/accounts/validate-email/${token}`, {}).toPromise();
+  }
 }
