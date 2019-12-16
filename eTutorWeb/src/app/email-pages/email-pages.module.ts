@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {PagesLayoutComponent} from '../pages/pages-layout/pages-layout.component';
 import { ParentRegistrationFormComponent } from './parent-registration-form/parent-registration-form.component';
 import { EmailPagesLayoutComponent } from './email-pages-layout/email-pages-layout.component';
 import {RouterModule, Routes} from '@angular/router';
